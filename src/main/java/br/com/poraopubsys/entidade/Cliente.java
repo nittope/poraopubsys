@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.poraobubsys.entidade;
+package br.com.poraopubsys.entidade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -62,6 +64,47 @@ public class Cliente implements Serializable {
 
     public void setRodada(Rodada rodada) {
         this.rodada = rodada;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.id);
+        hash = 19 * hash + Objects.hashCode(this.nome);
+        hash = 19 * hash + Objects.hashCode(this.pedidos);
+        hash = 19 * hash + Objects.hashCode(this.rodada);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.pedidos, other.pedidos)) {
+            return false;
+        }
+        if (!Objects.equals(this.rodada, other.rodada)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Cliente(Long id, String nome, Rodada rodada) {
+        this.id = id;
+        this.nome = nome;
+        this.rodada = rodada;
+        this.pedidos = new ArrayList<Pedido>();
     }
     
     

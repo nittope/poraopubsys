@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.poraobubsys.entidade;
+package br.com.poraopubsys.entidade;
 
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -71,6 +71,54 @@ public class Produto implements Serializable {
 
     public void setItem(Item item) {
         this.item = item;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.nome);
+        hash = 59 * hash + Objects.hashCode(this.estoque);
+        hash = 59 * hash + Objects.hashCode(this.preco);
+        hash = 59 * hash + Objects.hashCode(this.item);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produto other = (Produto) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.estoque, other.estoque)) {
+            return false;
+        }
+        if (!Objects.equals(this.preco, other.preco)) {
+            return false;
+        }
+        if (!Objects.equals(this.item, other.item)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Produto(String nome, Integer estoque, Float preco, Item item) {
+        this.nome = nome;
+        this.estoque = estoque;
+        this.preco = preco;
+        this.item = item;
+    }
+
+    public Produto() {
     }
     
     

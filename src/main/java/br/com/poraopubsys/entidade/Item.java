@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.poraobubsys.entidade;
+package br.com.poraopubsys.entidade;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class Item implements Serializable {
         this.id = id;
     }
 
-    @OneToMany(mappedBy = "itens")
+    @OneToMany(mappedBy = "item")
     public List<Produto> getProdutos() {
         return produtos;
     }
@@ -100,7 +100,7 @@ public class Item implements Serializable {
         return true;
     }
 
-    public Item(List<Produto> produtos, int quantidade, float total) {
+    public Item(int quantidade, float total) {
         this.produtos = new ArrayList<>();
         this.quantidade = quantidade;
         this.total = total;

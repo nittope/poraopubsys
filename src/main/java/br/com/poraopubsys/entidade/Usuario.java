@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.poraobubsys.entidade;
+package br.com.poraopubsys.entidade;
 
 import java.util.Objects;
 import javax.persistence.Entity;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -77,6 +78,17 @@ public class Usuario implements Serializable{
 
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
+    }
+
+    public Usuario(String nome, Integer niveldeacesso, String login, String senha) {
+        this.nome = nome;
+        this.niveldeacesso = niveldeacesso;
+        this.login = login;
+        this.senha = senha;
+        this.pedidos = new ArrayList<>();
+    }
+
+    public Usuario() {
     }
 
     
