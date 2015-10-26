@@ -17,6 +17,7 @@ public interface FachadaServicos extends Serializable{
     public void cadastrar(Mesa mesa) throws MesaExistenteException;
     public void atualizar(Mesa mesa) throws MesaInexistenteException;
     public void remover(String nome) throws MesaInexistenteException;
-    public List<Mesa> listarTodas();
+    public List<Mesa> listarTodas();    
+    
     
 }
