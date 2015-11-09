@@ -36,13 +36,13 @@ public class ControllerMesa {
     
     @RequestMapping(value = "/mesas/listar", method = RequestMethod.POST)
     public @ResponseBody List<Mesa> listarTodas(){
-        return fachada.listarTodas();
+        return fachada.listarTodasAsMesas();
     }
     
     @RequestMapping("/mesas/add")
     public ResponseEntity<?> addUser (Mesa mesa){
         try{
-            fachada.cadastrar(mesa);
+            fachada.cadastrarMesa(mesa);
             return new ResponseEntity<String>(HttpStatus.OK);
         }
         catch(MesaExistenteException mesaexistente){

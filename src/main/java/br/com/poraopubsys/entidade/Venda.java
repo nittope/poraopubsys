@@ -23,7 +23,7 @@ import javax.persistence.OneToMany;
 public class Venda implements Serializable {
     
     private Long id;
-    private List<Rodada> rodadas;
+    private Rodada rodadas;
     private Float total;
 
     @Id
@@ -37,11 +37,11 @@ public class Venda implements Serializable {
     }
 
     @OneToMany(mappedBy = "venda")
-    public List<Rodada> getRodadas() {
+    public Rodada getRodadas() {
         return rodadas;
     }
 
-    public void setRodadas(List<Rodada> rodadas) {
+    public void setRodadas(Rodada rodadas) {
         this.rodadas = rodadas;
     }
 
@@ -85,7 +85,7 @@ public class Venda implements Serializable {
 
     public Venda(Float total) {
         this.total = total;
-        this.rodadas = new ArrayList<>();
+        this.rodadas = rodadas;
     }
 
     public Venda() {

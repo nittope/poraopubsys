@@ -25,8 +25,10 @@ public interface RepositorioPedidos extends CrudRepository<Pedido, Long> {
     public List<Pedido> findByMesa(Mesa mesa);
     public List<Pedido> findByUsuario(Usuario usuario);
     public List<Pedido> findByUsuarioAndData(Usuario usuario, Date data);
-    public List<Pedido> findByRodada(Rodada rodada);
+    //public List<Pedido> findByRodada(Long rodada);
     public List<Pedido> findByRodadaAndCliente(Rodada rodada, Cliente cliente);
     public List<Pedido> findByCliente(Cliente cliente);
+
+    public Pedido findByRodada(Rodada rodada);
     
 }

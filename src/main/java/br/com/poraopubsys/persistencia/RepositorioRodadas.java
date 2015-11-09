@@ -16,5 +16,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author Marcus Vinicius
  */
 public interface RepositorioRodadas extends CrudRepository<Rodada, Long> {
-    public List<Rodada> findByMesa(Mesa mesa); 
+    public Rodada findByMesa(Mesa mesa); 
+
+    public Rodada findByMesa(Long id);
 }
